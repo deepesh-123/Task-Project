@@ -1,0 +1,44 @@
+<div class="taskBody">
+
+  <div class="formHeader">
+    <h3 *ngIf="!isUpdate">Create New Task</h3>
+    <h3 *ngIf="isUpdate">Update Task</h3>
+    <button *ngIf="isUpdate" mat-raised-button color="warn">Delete Task </button>
+    <button (click)="isUpdate = !isUpdate" *ngIf="isUpdate" mat-raised-button color="primary">Create New Task </button>
+
+  </div>
+  <form action="" class="formBody" [formGroup]="taskForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Task Name</mat-label>
+      <input matInput formControlName="taskName" >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Task Description</mat-label>
+      <input matInput formControlName="description" >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Priority</mat-label>
+      <mat-select formControlName="priority" [(value)]="selectedPriority">
+        <mat-option value="low">Low</mat-option>
+        <mat-option value="medium">Medium</mat-option>
+        <mat-option value="high">High</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Status</mat-label>
+      <mat-select formControlName="status" [(value)]="selectedStatus">
+        <mat-option value="Complete">Complete</mat-option>
+        <mat-option value="underProgress">Under Progress</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="deadLine">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+  <button *ngIf="!isUpdate" (click)="createTask()" mat-raised-button color="primary">Create Task </button>
+  <button *ngIf="isUpdate" (click)="patchTask()" mat-raised-button color="primary">Update Task </button>
+
+</div>

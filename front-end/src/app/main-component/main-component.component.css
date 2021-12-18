@@ -1,0 +1,14 @@
+.sideBar {
+  width: 25%;
+}
+
+.example-container {
+  height: 100%;
+}
+
+mat-drawer-container.mat-drawer-container.example-container {
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: -16px;
+  margin-bottom: -16px;
+}

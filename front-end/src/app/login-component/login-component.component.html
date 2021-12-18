@@ -1,0 +1,51 @@
+<div class="example-container" *ngIf="isLoginForm">
+  <h1>Login</h1>
+  <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="signIn()">
+    <mat-label *ngIf="isinvalid">Invalid Email or password</mat-label>
+    <mat-form-field appearance="fill">
+     
+
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="loginEmail" required>
+      <mat-error *ngIf="loginEmail.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="loginPassword">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Login</button>
+  </form>
+  <h3>Not having an account ? </h3>
+  <button (click)="isLoginForm = !isLoginForm" mat-raised-button color="warn">SignUp</button>
+</div>
+<div class="example-container" *ngIf="!isLoginForm">
+  <h1>Sign Up</h1>
+  <form class="signUpForm" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="signUpEmail" required>
+      <mat-error *ngIf="loginEmail.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="signUpPassword">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput  [formControl]="signUpName">
+    </mat-form-field>
+   
+
+    <button type="submit" mat-raised-button color="primary">Sign Up</button>
+  </form>
+  <h3>Already having an account ? </h3>
+  <button (click)="isLoginForm = !isLoginForm" mat-raised-button color="warn">Login</button>
+</div>

@@ -1,0 +1,11 @@
+<div class="mainBody">
+  <div class="body" *ngFor="let task of tasksList" (click)="selectTask(task)">
+    <mat-card class="taskDemoCard">
+      <div>Name : {{task.title}}</div>
+      <div>Priority : {{task.priority}}</div>
+      <div>Status : {{task.status}}</div>
+      <div>Deadline : {{task.deadline | date}}</div>
+    </mat-card>
+  </div>
+
+</div>

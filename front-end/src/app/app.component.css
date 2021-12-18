@@ -1,0 +1,23 @@
+.header {
+  background: #84a5e1;
+  color: white;
+}
+
+.app {
+  background: #f1ecec;
+  height: 100%;
+}
+
+.bodyCard {
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100%;
+}
+
+.taskBody {
+  margin-top: 2%;
+}
+
+h2 {
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+.taskDemoCard {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card.mat-card.mat-focus-indicator.taskDemoCard {
+  width: 80%;
+  margin-bottom: 25px;
+}
+
+.mainBody {
+  background: #000000;
+  padding-top: 20px;
+}
+
+.body.ng-star-inserted {
+  margin-left: 19px;
+  cursor: pointer;
+}
